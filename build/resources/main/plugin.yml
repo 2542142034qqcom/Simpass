@@ -1,0 +1,46 @@
+name: Simpass
+version: '1.0-SNAPSHOT'
+main: org.simple.simpass.Simpass
+api-version: '1.20'
+
+commands:
+  simpass:
+    description: Simpass authentication command
+    usage: /<command> uuid <uuid> 或 /<command> v1 或 /<command> v2 或 /<command> whitelist <uid> 或 /<command> unwhitelist <uid>
+    permission: simpass.admin
+    aliases: [spass]
+  auth:
+    description: Manual authentication command
+    usage: /<command> <uid> <verify_code>
+    aliases: [verify]
+    permission: simpass.auth
+  image:
+    description: Generate map art from URL
+    usage: /<command> url <image_url>
+    aliases: [img]
+    permission: simpass.image
+  simpban:
+    description: Ban a player by name and UID
+    usage: /<command> <player> [reason]
+    permission: simpass.ban
+  unsimpban:
+    description: Unban a player
+    usage: /<command> <player>
+    permission: simpass.ban
+
+permissions:
+  simpass.admin:
+    description: Allows setting the developer UUID and verification level
+    default: op
+  simpass.whitelist:
+    description: Allows managing the whitelist
+    default: op
+  simpass.auth:
+    description: Allows using the auth command
+    default: true
+  simpass.image:
+    description: Allows using the image command to generate map art from URL
+    default: op
+  simpass.ban:
+    description: Allows using ban and unban commands
+    default: op
